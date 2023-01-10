@@ -1,0 +1,4 @@
+172.24.12.188 kafka_master
+172.24.12.180 kafka_node0
+172.24.12.181 kafka_node1
+172.24.12.182 kafka_node2
