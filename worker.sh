@@ -1,4 +1,13 @@
 #!/bin/bash
+echo -e "\nThis is for ubuntu 20.04 docker_kubernetes_helm_zookeeper_kafka_installation!!!\n";
+echo -e "\n!!!!!!!!!! There will be some NOTICE later, please make sure you have read it seriously before press yes !!!!!!!!!!\n";
+while true; do
+    read -p "!!!!!!!!!! Please make sure you have finished 'STEP1' and 'REBOOT' the machine~ (y/n) !!!!!!!!!!" yn
+    case $yn in
+        [Yy]* ) echo "The installation will be start~"; break;;
+        [Nn]* ) exit;;
+    esac
+done
 
 sudo apt update
 echo -e "\n################################################### DOCKER ###################################################\n";
@@ -6,6 +15,7 @@ sudo apt install containerd -y
 sudo apt install docker.io -y
 sudo systemctl enable docker
 sudo systemctl start docker
+
 echo -e "\n################################################### Kubernetes ###################################################\n";
 sudo apt install apt-transport-https ca-certificates curl -y
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
