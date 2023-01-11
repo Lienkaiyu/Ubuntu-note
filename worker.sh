@@ -6,7 +6,6 @@ sudo apt install containerd -y
 sudo apt install docker.io -y
 sudo systemctl enable docker
 sudo systemctl start docker
-
 echo -e "\n################################################### Kubernetes ###################################################\n";
 sudo apt install apt-transport-https ca-certificates curl -y
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
