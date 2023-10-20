@@ -1,0 +1,16 @@
+tar cf - /folder-with-big-files -P | pv -s $(du -sb /folder-with-big-files | awk '{print $1}') | gzip > big-files.tar.gz 
+
+XZ_OPT='-9' tar -cf --xz ~/export.tar.xz * --threads=32 -c -
+XZ_OPT='-9' tar -cvJf .  -P | pv -s $(du -sb . | awk '{print $1}') | > ~/export.tar.xz *
+
+tar -cf - "${SOURCE}" | pv -p -s "${SOURCE_SIZE}k" | xz -9 --threads=32 -c -
+
+tar -c -I 'xz -9 -T0' -f  ~/export.tar.xz *
+tar -cv -I 'xz -9 -T0' -f  ~/export.tar.xz
+
+tar -C Export_2023-10-20T11-21-03 -cv -I 'xz -9 -T0' -f  ~/export.tar.xz
+
+tar -cv -I 'xz -9 -T0' -f -C Export_2023-10-20T11-21-03 ~/export.tar.xz --strip-components 2
+
+
+tar -rvf -I 'xz -9 -T0' -f ~/export.tar.xz
